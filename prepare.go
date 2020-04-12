@@ -159,7 +159,12 @@ func prepareEDU(text string) string {
 			if token == "" {
 				result += "\n" + v
 			} else {
-				result += fmt.Sprintf("\n%s %s: %s", token[:len(token)-1], tokens[token][index], v)
+				tokenLen := len(tokens[token])
+				if index >= tokenLen {
+					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][tokenLen-1], v)
+				} else {
+					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][index], v)
+				}
 				index += 1
 			}
 		}
@@ -366,8 +371,14 @@ func prepareTW(text string) string {
 				result += "\n" + v
 			} else {
 				index += 1
+				var indexName string
 				tokenName := token[:len(token)-1]
-				indexName := tokens[token][index]
+				tokenLen := len(tokens[token])
+				if index >= tokenLen {
+					indexName = tokens[token][tokenLen-1]
+				} else {
+					indexName = tokens[token][index]
+				}
 				if tokenName == "Contact" {
 					tokenName = "Registrant Contact"
 				}
@@ -769,7 +780,12 @@ func prepareNL(text string) string {
 			if token == "" {
 				result += "\n" + v
 			} else {
-				result += fmt.Sprintf("\n%s %s: %s", token[:len(token)-1], tokens[token][index], v)
+				tokenLen := len(tokens[token])
+				if index >= tokenLen {
+					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][tokenLen-1], v)
+				} else {
+					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][index], v)
+				}
 				index += 1
 			}
 		}

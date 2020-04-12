@@ -161,9 +161,9 @@ func prepareEDU(text string) string {
 			} else {
 				tokenLen := len(tokens[token])
 				if index >= tokenLen {
-					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][tokenLen-1], v)
+					result += fmt.Sprintf("\n%s %s: %s", token[:len(token)-1], tokens[token][tokenLen-1], v)
 				} else {
-					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][index], v)
+					result += fmt.Sprintf("\n%s %s: %s", token[:len(token)-1], tokens[token][index], v)
 				}
 				index += 1
 			}
@@ -782,9 +782,9 @@ func prepareNL(text string) string {
 			} else {
 				tokenLen := len(tokens[token])
 				if index >= tokenLen {
-					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][tokenLen-1], v)
+					result += fmt.Sprintf("\n%s %s: %s", token[:len(token)-1], tokens[token][tokenLen-1], v)
 				} else {
-					result += fmt.Sprintf("\n%s %s: %s", token[:tokenLen-1], tokens[token][index], v)
+					result += fmt.Sprintf("\n%s %s: %s", token[:len(token)-1], tokens[token][index], v)
 				}
 				index += 1
 			}

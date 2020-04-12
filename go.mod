@@ -1,4 +1,4 @@
-module github.com/likexian/whois-parser-go
+module github.com/akissa/whois-parser-go
 
 go 1.12
 
